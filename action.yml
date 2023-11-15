@@ -1,0 +1,47 @@
+# action.yml
+name: 'Autorest Legacy'
+description: 'Autorest legacy environment'
+inputs:
+  input-file:
+    description: 'The file path or URL of swagger file'
+    required: true
+  output-folder:
+    description: 'The folder path of generated code; default: generated'
+    required: false
+    default: 'generated'
+  clear-output-folder:
+    description: 'clear the output folder before code generation; default: false'
+    required: false
+    default: false
+  override-client-name:
+    description: 'Name to use for the generated client type; default: <Normalized title in swagger file>'
+    required: false
+    default: false
+  namespace:
+    description: 'The base namespace for generated C# code; default: Swagger'
+    required: false
+    default: 'Swagger'
+  csharp:
+    description: 'Generate C# code; default: false'
+    required: false
+    default: false
+  typescript:
+    description: 'Generate TypeScript code; default: false'
+    required: false
+    default: false
+  python:
+    description: 'Generate python code; default: false'
+    required: false
+    default: false 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.input-file }}
+  - ${{ inputs.output-folder }}
+  - ${{ inputs.clear-output-folder }}
+  - ${{ inputs.override-client-name }}
+  - ${{ inputs.namespace }}
+  - ${{ inputs.csharp }}
+  - ${{ inputs.typescript }}
+  - ${{ inputs.python }}
