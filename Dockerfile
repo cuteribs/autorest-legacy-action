@@ -1,17 +1,19 @@
-FROM node:16-bullseye
+FROM node:18-alpine
 
-apt update && \
-    apt install -y --no-install-recommends libunwind-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
-    chmod +x ./dotnet-install.sh && \
-    ./dotnet-install.sh -c 3.1 && \
-    export DOTNET_ROOT=$HOME/.dotnet && \
-    export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools && \
-    export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 && \
-    npm i -g autorest
+WORKDIR /root
+VOLUME [ "/output" ]
 
-COPY entrypoint.sh /entrypoint.sh
+ADD https://dotnetcli.azureedge.net/dotnet/Runtime/6.0.25/dotnet-runtime-6.0.25-linux-musl-x64.tar.gz /root/.dotnet/runtime.tar.gz
+COPY *.md /root/
+COPY *.sh /root/
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENV PATH="$PATH:/root/.dotnet"
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
+RUN tar xvf /root/.dotnet/runtime.tar.gz --directory /root/.dotnet/ && \
+    rm /root/.dotnet/runtime.tar.gz && \
+    npm i -g autorest && \
+    autorest --version:3.5 --legacy; exit 0
+RUN mv /root/*.md /root/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
+
+ENTRYPOINT [ "/root/entrypoint.sh" ]

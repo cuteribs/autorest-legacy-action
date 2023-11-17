@@ -5,10 +5,6 @@ inputs:
   input-file:
     description: 'The file path or URL of swagger file'
     required: true
-  output-folder:
-    description: 'The folder path of generated code; default: generated'
-    required: false
-    default: 'generated'
   clear-output-folder:
     description: 'clear the output folder before code generation; default: false'
     required: false
@@ -38,7 +34,6 @@ runs:
   image: 'Dockerfile'
   args:
   - ${{ inputs.input-file }}
-  - ${{ inputs.output-folder }}
   - ${{ inputs.clear-output-folder }}
   - ${{ inputs.override-client-name }}
   - ${{ inputs.namespace }}
