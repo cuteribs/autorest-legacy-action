@@ -1,7 +1,6 @@
 FROM node:18-alpine
 
 WORKDIR /root
-VOLUME [ "/output" ]
 
 ADD https://dotnetcli.azureedge.net/dotnet/Runtime/6.0.25/dotnet-runtime-6.0.25-linux-musl-x64.tar.gz /root/.dotnet/runtime.tar.gz
 COPY *.md /root/

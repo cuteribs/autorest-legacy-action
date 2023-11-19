@@ -10,7 +10,7 @@ python=${7-false}
 
 autorest && \
   --input-file:$input_file && \
-  --output-folder:/output && \
+  --output-folder:/github/workspace/output && \
   --clear-output-folder:$clear_output_folder && \
   --override-client-name:$override_client_name && \
   --namespace:$namespace && \
