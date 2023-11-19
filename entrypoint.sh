@@ -8,6 +8,8 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
+echo 'input-file: $input_file'
+
 autorest && \
   --input-file:$input_file && \
   --output-folder:/github/workspace/output && \
