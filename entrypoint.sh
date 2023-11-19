@@ -12,6 +12,8 @@ export PATH=$PATH:/root/.dotnet
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 autorest \
+  --legacy \
+  --version:3.5 \
   --input-file:$input_file \
   --output-folder:/github/workspace/output \
   --clear-output-folder:$clear_output_folder \
@@ -20,9 +22,8 @@ autorest \
   --csharp:$csharp \
   --typescript:$typescript \
   --python:$python \
+  --verbose
   # --use:@cuteribs/autorest.csharp@latest \
   # --use:@cuteribs/autorest.python@latest \
   # --use:@cuteribs/autorest.typescript@latest \
-  --legacy \
-  --version:3.5
 
