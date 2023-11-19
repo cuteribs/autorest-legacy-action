@@ -8,11 +8,9 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-ls /github/home -laR
+mv *.md /github/home/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
 
-mv *.md ~/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
-
-export PATH=$PATH:~/.dotnet
+export PATH=$PATH:/github/home/.dotnet
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 autorest \
