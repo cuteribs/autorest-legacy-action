@@ -1,0 +1,37 @@
+name: Delete old workflow runs
+on:
+  workflow_dispatch:
+    inputs:
+      delete_run_by_conclusion_pattern:
+        description: 'Remove workflow by conclusion: action_required, cancelled, failure, skipped, success'
+        required: true
+        default: "All"
+        type: choice
+        options:
+        - "All"
+        - action_required
+        - cancelled
+        - failure
+        - skipped
+        - success
+  push:
+    paths:
+    - '.github/workflows/clean-up-failed-runs.yml'
+  schedule:
+    - cron: '0 0 * * 0'
+# Run monthly, at 00:00 on the 1st day of month.
+
+jobs:
+  del_runs:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: veracity-engineering/SolutionPackage
+          retain_days: 0
+          keep_minimum_runs: 0
+          delete_run_by_conclusion_pattern: 'failure'

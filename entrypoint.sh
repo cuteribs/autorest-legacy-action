@@ -8,8 +8,9 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
+pwd
 ls /github/home/.autorest/@autorestcore@3.5.1/nodemodules/@autorest/core/dist/resources/
-
+exit 0
 export PATH=$PATH:/root/.dotnet
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
