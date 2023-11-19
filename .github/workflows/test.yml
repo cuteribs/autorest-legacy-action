@@ -10,4 +10,4 @@ jobs:
           input-file: 'https://api-portal.veracity.com/docs/services/DataValidatorApi/export?DocumentFormat=OpenApiJson'
           csharp: true
       - run: |
-        ls ${{ github.workspace }} -lR
+          ls ${{ github.workspace }} -lR
