@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  autorest-generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./
+        with:
+          input-file: 'https://api-portal.veracity.com/docs/services/DataValidatorApi/export?DocumentFormat=OpenApiJson'
+          csharp: true
+      - run: |
+        ls ${{ github.workspace }} -lR
