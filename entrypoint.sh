@@ -2,8 +2,8 @@
 
 input_file=${1}
 clear_output_folder=${2-false}
-override_client_name=${3-}
-namespace=${4-}
+override_client_name=${3-ApiClient}
+namespace=${4-AutoRest}
 csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
