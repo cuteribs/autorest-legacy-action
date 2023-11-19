@@ -8,7 +8,7 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-ls /root/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
+cat /root/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/plugin-csharp.md
 
 autorest \
   --input-file:$input_file \
