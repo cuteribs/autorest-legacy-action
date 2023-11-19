@@ -8,10 +8,10 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-wget $input_file -O swagger.json
+wget $input_file -O /root/swagger.json
 
 autorest && \
-  --input-file:swagger.json && \
+  --input-file:/root/swagger.json && \
   --output-folder:/github/workspace/output && \
   --clear-output-folder:$clear_output_folder && \
   --override-client-name:$override_client_name && \
