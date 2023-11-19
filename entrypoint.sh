@@ -22,8 +22,8 @@ autorest \
   --csharp:$csharp \
   --typescript:$typescript \
   --python:$python \
+  --use:@cuteribs/autorest.csharp@latest \
+  --use:@cuteribs/autorest.python@latest \
+  --use:@cuteribs/autorest.typescript@latest \
   --verbose
-  # --use:@cuteribs/autorest.csharp@latest \
-  # --use:@cuteribs/autorest.python@latest \
-  # --use:@cuteribs/autorest.typescript@latest \
 
