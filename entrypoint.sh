@@ -8,7 +8,7 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-ls -laR
+ls /github/home -laR
 
 mv *.md ~/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
 
