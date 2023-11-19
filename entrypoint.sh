@@ -8,17 +8,15 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-wget $input_file -O /root/swagger.json
-
-autorest && \
-  --input-file:/root/swagger.json && \
-  --output-folder:/github/workspace/output && \
-  --clear-output-folder:$clear_output_folder && \
-  --override-client-name:$override_client_name && \
-  --namespace:$namespace && \
-  --csharp:$csharp && \
-  --typescript:$typescript && \
-  --python:$python && \
-  --legacy && \
+autorest \
+  --input-file:$input_file \
+  --output-folder:/github/workspace/output \
+  --clear-output-folder:$clear_output_folder \
+  --override-client-name:$override_client_name \
+  --namespace:$namespace \
+  --csharp:$csharp \
+  --typescript:$typescript \
+  --python:$python \
+  --legacy \
   --version:3.5
 
