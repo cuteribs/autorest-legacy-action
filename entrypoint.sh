@@ -8,7 +8,8 @@ csharp=${5-false}
 typescript=${6-false}
 python=${7-false}
 
-cat /root/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/plugin-csharp.md
+export PATH=$PATH:/root/.dotnet
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 autorest \
   --input-file:$input_file \
@@ -19,9 +20,9 @@ autorest \
   --csharp:$csharp \
   --typescript:$typescript \
   --python:$python \
-  --use:@cuteribs/autorest.csharp@latest \
-  --use:@cuteribs/autorest.python@latest \
-  --use:@cuteribs/autorest.typescript@latest \
+  # --use:@cuteribs/autorest.csharp@latest \
+  # --use:@cuteribs/autorest.python@latest \
+  # --use:@cuteribs/autorest.typescript@latest \
   --legacy \
   --version:3.5
 
