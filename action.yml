@@ -7,27 +7,21 @@ inputs:
     required: true
   clear-output-folder:
     description: 'clear the output folder before code generation; default: false'
-    required: false
     default: false
   override-client-name:
     description: 'Name to use for the generated client type; default: <Normalized title in swagger file>'
-    required: false
-    default: false
+    default: 'ApiClient'
   namespace:
     description: 'The base namespace for generated C# code; default: Swagger'
-    required: false
-    default: 'Swagger'
+    default: 'AutoRest'
   csharp:
     description: 'Generate C# code; default: false'
-    required: false
     default: false
   typescript:
     description: 'Generate TypeScript code; default: false'
-    required: false
     default: false
   python:
     description: 'Generate python code; default: false'
-    required: false
     default: false 
 runs:
   using: 'docker'
