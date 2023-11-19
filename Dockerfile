@@ -13,7 +13,7 @@ RUN tar xvf /root/.dotnet/runtime.tar.gz --directory /root/.dotnet/ && \
     rm /root/.dotnet/runtime.tar.gz && \
     npm i -g autorest && \
     autorest --version:3.5 --legacy; exit 0
-RUN chmod +x /root/entrypoint.sh && \
+RUN chmod +x /root/*.sh && \
     mv /root/*.md /root/.autorest/@autorest_core@3.5.1/node_modules/@autorest/core/dist/resources/
 
 ENTRYPOINT [ "/root/entrypoint.sh" ]
